@@ -6,6 +6,6 @@ class Settings(BaseSettings):
     API_KEY: str
 
     class Config:
-        env_file = "../.env"
+        env_file = ".env"
 
 settings = Settings()
