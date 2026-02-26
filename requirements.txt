@@ -5,3 +5,4 @@ pydantic-settings
 slowapi
 googlemaps
 uvicorn
+a2wsgi

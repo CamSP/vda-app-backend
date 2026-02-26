@@ -15,7 +15,7 @@ limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-app.include_router(locations.router, prefix="/api/locations", tags=["locations"])
+app.include_router(locations.router, prefix="/locations", tags=["locations"])
 
 @app.get("/")
 def root():
