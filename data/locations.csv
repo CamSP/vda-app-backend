@@ -1,6 +1,6 @@
-id,nombre,lat,lng,descripcion
-1,Plaza de Bolívar,4.598056,-74.075833,Centro histórico de Bogotá
-2,Parque 93,4.676111,-74.048333,Zona Rosa - parque y restaurantes
-3,Unicentro,4.700278,-74.038611,Centro comercial norte de Bogotá
-4,Aeropuerto El Dorado,4.701944,-74.146944,Aeropuerto internacional
-5,Usaquén,4.694722,-74.031389,Barrio colonial con mercado de pulgas
+id,name,address,lat,lng,contact
+1,Gloria Castiblanco,Calle 159 a 19b-71,4.7397304,-74.0456474,1234
+2,Janneth Rodriguez,Carrera 19f # 28b-16sur,4.580352473681167,-74.1099906467636,1234
+3,Yuly Vertel,Calle 67a #50b-12,4.6636939,-74.077878,1234
+4,William Chilatra,Calle 87#103D-31,4.7207933,-74.1085659,1234
+5,Linda Montilla,Carrera 16A#136-52,4.720644099999999,-74.04289039999999,1234

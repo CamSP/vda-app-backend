@@ -15,11 +15,11 @@ def _load_locations() -> list[Location]:
         for row in reader:
             locations.append(Location(
                 id=int(row["id"]),
-                name=row["nombre"],
+                name=row["name"],
                 lat=float(row["lat"]),
                 lng=float(row["lng"]),
-                address=row["descripcion"],
-                contact="1234"
+                address=row["address"],
+                contact=row["contact"]
             ))
     return locations
 
