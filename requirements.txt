@@ -6,3 +6,6 @@ slowapi
 googlemaps
 uvicorn
 a2wsgi
+sqlalchemy 
+pymysql
+sqlmodel
