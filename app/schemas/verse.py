@@ -3,13 +3,13 @@ from datetime import date
 
 class VerseResponse(BaseModel):
     verse: str
-    resume: str
+    summary: str
 
 
 class DailyVerseResponse(BaseModel):
     id: int
     date: date
-    resume: str
+    summary: str
     verse: str
 
     class Config:

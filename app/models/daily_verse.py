@@ -6,5 +6,5 @@ class DailyVerse(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     date = Column(Date)
-    resume = Column(String(500))
+    summary = Column(String(500))
     verse = Column(String(100))
