@@ -54,7 +54,7 @@ def knn_search(lat: float, lng: float, k: int) -> list[LocationResult]:
             lat=loc.lat,
             lng=loc.lng,
             address=loc.address,
-            contact=str(dist),
+            contact=loc.contact,
             distance=dist
         ))
 
