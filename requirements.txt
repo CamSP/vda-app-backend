@@ -9,3 +9,5 @@ a2wsgi
 sqlalchemy 
 pymysql
 sqlmodel
+jwt
+apscheduler
