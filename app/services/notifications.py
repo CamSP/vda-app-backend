@@ -19,7 +19,6 @@ def register_token(token: str, db: Session):
 
 def broadcast(title: str, body: str, db: Session, data: dict = None):
     tokens = db.query(PushToken).all()
-    print(tokens)
     if not tokens:
         return {"sent": 0}
 

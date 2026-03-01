@@ -11,3 +11,4 @@ pymysql
 sqlmodel
 jwt
 apscheduler
+exponent_server_sdk

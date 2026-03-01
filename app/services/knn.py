@@ -1,32 +1,11 @@
-import csv
 import math
-from pathlib import Path
+from sqlalchemy.orm import Session
 from app.models.location import Location
 from app.schemas.location import LocationResult
 
-DATA_PATH = Path(__file__).resolve().parents[2] / "data" / "locations.csv"
-
-
-def _load_locations() -> list[Location]:
-    """Carga los puntos desde el CSV."""
-    locations = []
-    with open(DATA_PATH, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            locations.append(Location(
-                id=int(row["id"]),
-                name=row["name"],
-                lat=float(row["lat"]),
-                lng=float(row["lng"]),
-                address=row["address"],
-                contact=row["contact"]
-            ))
-    return locations
-
 
 def _haversine(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
-    """Distancia en km entre dos coordenadas usando la fórmula de Haversine."""
-    R = 6371  # radio de la Tierra en km
+    R = 6371
     d_lat = math.radians(lat2 - lat1)
     d_lng = math.radians(lng2 - lng1)
     a = (
@@ -38,12 +17,8 @@ def _haversine(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
     return R * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 
-def knn_search(lat: float, lng: float, k: int) -> list[LocationResult]:
-    """
-    Ejecuta KNN manual sobre el CSV y devuelve los k vecinos más cercanos
-    ordenados por distancia ascendente.
-    """
-    locations = _load_locations()
+def knn_search(lat: float, lng: float, k: int, db: Session) -> list[LocationResult]:
+    locations = db.query(Location).all()
 
     results = []
     for loc in locations:
@@ -51,11 +26,11 @@ def knn_search(lat: float, lng: float, k: int) -> list[LocationResult]:
         results.append(LocationResult(
             id=loc.id,
             name=loc.name,
+            address=loc.address,
             lat=loc.lat,
             lng=loc.lng,
-            address=loc.address,
             contact=loc.contact,
-            distance=dist
+            distance=round(dist, 3),
         ))
 
     results.sort(key=lambda x: x.distance)
