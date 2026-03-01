@@ -1,11 +1,12 @@
-from dataclasses import dataclass
+from sqlalchemy import Column, Integer, String, Float
+from app.database import Base
 
+class Location(Base):
+    __tablename__ = "locations"
 
-@dataclass
-class Location:
-    id: int
-    name: str
-    lat: float
-    lng: float
-    address: str
-    contact: str
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100))
+    address = Column(String(200))
+    lat = Column(Float)
+    lng = Column(Float)
+    contact = Column(String(20))

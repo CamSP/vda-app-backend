@@ -1,12 +1,12 @@
 id,name,address,lat,lng,contact
-1,Gloria Castiblanco,Calle 159A#19B-71,4.7397304,-74.0456474,1234
-2,Janneth Rodriguez,Carrera 19F#28B-16sur,4.580352473681167,-74.1099906467636,1234
-3,Yuly Vertel,Calle 67A #50B-12,4.6636939,-74.077878,1234
-4,William Chilatra,Calle 87#103D-31,4.7207933,-74.1085659,1234
-5,Linda Montilla,Carrera 16A#136-52,4.720644099999999,-74.04289039999999,1234
-6,Oscar Zurita,Carrera 3#10A-02. Chía,4.857228,-74.05377899999999,1234
-9,Clara Patiño,Carrera 111A#145-87,4.7497593,-74.1006159,1234
-10,Lenin Montilla,Calle 155#9-45,4.703336699999999,-74.0328803,1234
-11,Luis Gonzalez,Calle 23D#86-28,4.6716502,-74.1266517,1234
-12,Eslabón de Jóvenes,Calle 83#22a-69,4.6708647,-74.0628567,1234
-12,Eslabón de Parejas Jóvenes,Calle 83#22a-69,4.6708647,-74.0628567,1234
+1,Gloria Castiblanco,Estrella del norte - Usaquén,4.7397304,-74.0456474,+573152234277
+2,Janneth Rodriguez,Quiroga,4.580352473681167,-74.1099906467636,+573152234277
+3,Yuly Vertel,San Miguel - Barrios Unidos,4.6636939,-74.077878,+573152234277
+4,William Chilatra,Modelia - Fontibon,4.7207933,-74.1085659,+573152234277
+5,Linda Montilla,Contador - Usaquen,4.720644099999999,-74.04289039999999,+573152234277
+6,Oscar Zurita,Chía,4.857228,-74.05377899999999,+573152234277
+9,Clara Patiño,Lombardia - Suba,4.7497593,-74.1006159,+573152234277
+10,Lenin Montilla,La Libería - Usaquén,4.703336699999999,-74.0328803,+573152234277
+11,Luis Gonzalez,Parques de Modelia,4.6716502,-74.1266517,+573152234277
+12,Eslabón de Jóvenes,Polo - Barrios Unidos,4.6708647,-74.0628567,+573152234277
+12,Eslabón de Parejas Jóvenes,Polo - Barrios Unidos,4.6708647,-74.0628567,+573152234277
