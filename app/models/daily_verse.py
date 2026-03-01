@@ -8,3 +8,4 @@ class DailyVerse(Base):
     date = Column(Date)
     summary = Column(String(500))
     verse = Column(String(100))
+    verse_text = Column(String(500))

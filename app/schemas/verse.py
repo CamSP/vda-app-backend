@@ -11,6 +11,7 @@ class DailyVerseResponse(BaseModel):
     date: date
     summary: str
     verse: str
+    verse_text: str
 
     class Config:
         from_attributes = True
