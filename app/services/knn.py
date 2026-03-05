@@ -19,6 +19,9 @@ def _haversine(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
 
 def knn_search(lat: float, lng: float, k: int, db: Session) -> list[LocationResult]:
     locations = db.query(Location).all()
+    
+    if not locations:
+        return []
 
     results = []
     for loc in locations:

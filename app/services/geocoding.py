@@ -2,17 +2,21 @@ from app.config import settings
 import googlemaps
 
 
+# ✅ Así debe quedar
 async def geocode_address(address: str) -> tuple[float, float]:
-    """
-    Recibe una dirección en texto y devuelve (lat, lng)
-    usando la API de Geocoding de Google.
-    """
     gmaps = googlemaps.Client(key=settings.GOOGLE_MAPS_API_KEY)
+    
+    try:
+        geocode_result = gmaps.geocode(address)
+    except Exception as e:
+        raise ValueError(f"Error al conectar con Google Maps: {e}")
 
-    # Geocoding an address
-    geocode_result = gmaps.geocode(address)
+    if not geocode_result:
+        raise ValueError(f"No se encontró la dirección: {address!r}")
 
     try:
-        return [geocode_result[0]['geometry']['location']['lat'], geocode_result[0]['geometry']['location']['lng']]
-    except:
-        raise ValueError(f"No se pudo geocodificar la dirección: {address!r} — status: {geocode_result}")
+        lat = geocode_result[0]['geometry']['location']['lat']
+        lng = geocode_result[0]['geometry']['location']['lng']
+        return lat, lng
+    except (KeyError, IndexError) as e:
+        raise ValueError(f"Respuesta inesperada de Google Maps: {e}")

@@ -6,6 +6,9 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from app.database import SessionLocal
+import logging
+
+logger = logging.getLogger(__name__)
 
 from app.services.getDailyVerse import notify_daily_verse
 
@@ -40,6 +43,8 @@ def daily_verse_job():
     db = SessionLocal()
     try:
         notify_daily_verse(db)
+    except Exception as e:
+        logger.error(f"Error en daily_verse_job: {e}")
     finally:
         db.close()
 

@@ -19,9 +19,6 @@ async def get_nearby_locations(
     body: NearbyRequest,
     db: Session = Depends(get_db)
 ):
-    # if x_api_key != settings.API_KEY:
-    #     raise HTTPException(status_code=403, detail="No autorizado")
-
     try:
         lat, lng = await geocode_address(body.address)
     except ValueError as e:
@@ -33,7 +30,7 @@ async def get_nearby_locations(
 
     return NearbyResponse(
         address=body.address,
-        lat=lat,
-        lng=lng,
+        lat=0,
+        lng=0,
         neighbors=vecinos,
     )

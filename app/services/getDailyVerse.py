@@ -10,9 +10,7 @@ def get_today_verse(db: Session) -> DailyVerseResponse | None:
 
 def notify_daily_verse(db: Session):
     verse = get_today_verse(db)
-
-    broadcast(
-        title="Versículo del día 📖",
-        body=verse.verse,
-        db=db
-    )
+    if not verse:
+        print("No hay versículo para hoy, no se envió notificación.")
+        return
+    broadcast(title="Versículo del día 📖", body=verse.verse, db=db)
