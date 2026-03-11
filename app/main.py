@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends
-from app.routers import locations, daily_verse, notifications
+from app.routers import locations, daily_verse, notifications, calendar_sync
 from app.config import settings
+from app.services.calendar_sync import sync_calendar
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
@@ -35,7 +36,7 @@ app.include_router(
     prefix="/notifications",
     tags=["notifications"]
 )
-
+app.include_router(calendar_sync.router, prefix="/calendar", tags=["calendar"])
 
 # Crons
 @scheduler.scheduled_job("cron", hour=6, minute=0)  # todos los días a las 8am
@@ -45,6 +46,16 @@ def daily_verse_job():
         notify_daily_verse(db)
     except Exception as e:
         logger.error(f"Error en daily_verse_job: {e}")
+    finally:
+        db.close()
+
+@scheduler.scheduled_job("cron", hour=0, minute=0) # todos los días a las 2am
+def calendar_sync_job():
+    db = SessionLocal()
+    try:
+        sync_calendar(db=db, days=60)
+    except Exception as e:
+        logger.error(f"Error en calendar_sync_job: {e}")
     finally:
         db.close()
 
