@@ -12,3 +12,6 @@ sqlmodel
 jwt
 apscheduler
 exponent_server_sdk
+rapidfuzz
+google-api-python-client
+google-auth

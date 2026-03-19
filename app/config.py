@@ -6,6 +6,10 @@ class Settings(BaseSettings):
     API_KEY: str
     DATABASE_URL: str
     EXPO_ACCESS_TOKEN: str
+    GOOGLE_SERVICE_ACCOUNT_JSON: str
+    WORDPRESS_URL: str
+    WORDPRESS_API_KEY: str
+    GOOGLE_CALENDAR_ID: str
 
     class Config:
         env_file = "./.env"
