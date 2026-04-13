@@ -86,6 +86,10 @@ def update_wordpress_event(wp_event_id: int, start: datetime, end: datetime) -> 
         current_start = datetime.strptime(current_data["start_date"], "%Y-%m-%d %H:%M:%S")
         current_end = datetime.strptime(current_data["end_date"], "%Y-%m-%d %H:%M:%S")
 
+        website = current_data["website"]
+        cost_details = current_data["cost_details"]
+        cost = current_data["cost"]
+
     except Exception as e:
         logger.error(f"Error al obtener evento WP {wp_event_id}: {e}")
         return False
@@ -95,6 +99,9 @@ def update_wordpress_event(wp_event_id: int, start: datetime, end: datetime) -> 
         "start_date": start.strftime("%Y-%m-%d") + " " + current_start.strftime("%H:%M:%S"),
         "end_date": current_end.strftime("%Y-%m-%d %H:%M:%S"),
         "organizer": [2987],
+        "website": website,
+        "cost_details": cost_details,
+        "cost": cost
     }
         
 
